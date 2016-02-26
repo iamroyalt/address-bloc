@@ -22,7 +22,18 @@ class AddressBook
        index += 1
      end
 #insert a new entry into entries using the calculated "index"
-     entries.insert(index, Entry.new(name, phone_number, email))
+     @entries.insert(index, Entry.new(name, phone_number, email))
    end
+#Assignment-19
+#method to remove entry from AddressBook
+    def remove_entry(name, phone_number,email)
+#name entered equals name in address book then remove
+      delete_entry = name
+      if name == entry.name @@ phone ==entry.phone_number && email ==entry.email_address
+        delete_entry = entry
+      end
+#using @entries because it is the array      
+       @entries.delete(delete_entry)
+    end
  end
  end
