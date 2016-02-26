@@ -14,7 +14,9 @@ Class MenuController
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+#Assignment 20 adding menu option View entry n
+     puts "5 - View entry n"
+     puts "6 - Exit"
      print "Enter your selection: "
 # user input using "gets" which reads the next line from standard input
      selection = gets.to_i
@@ -39,7 +41,13 @@ case selection
        system "clear"
        read_csv
        main_menu
+#Assignment 20 - adding entry_n_submenu since they will need to choose the entry
      when 5
+       system "clear"
+        entry_n_submenu
+        main_menu
+#changed exit option to 6 from 5
+     when 6
        puts "Good-bye!"
 #terminates the program using 0 which signals the program to exit without error
        exit(0)
@@ -50,8 +58,25 @@ case selection
        main_menu
      end
    end
+#Assingment 20 Entry_n_submenu method
+  def Entry_n_submenu
+    puts "Entry number to view:"
+#using gets.chomp.to_i as done on line 21
+    selection = gets.chomp.to_i
+#using count because the selection they make has to be in the AddressBook
+    if selection < @address_book.entries.count
+#if entry is there is puts to the screen
+        puts @address_book.entries[selection]
+        puts "Press enter to return to main menu"
+        system "clear"
+#if entry is not there it asks user to enter another selection
+    else
+      puts "#{selection} is not in AddressBook"
+      Entry_n_submenu
+    end
+  end  
 
-#iterates through all the entries using each
+
    def view_all_entries
      address_book.entries.each do |entry|
        system "clear"
@@ -71,7 +96,7 @@ case selection
          selection = gets.chomp
 
          case selection
-#when user asks to see the next entry, we can do nothing and control will be 
+#when user asks to see the next entry, we can do nothing and control will be
 ##returned to view_all_entries
          when "n"
 #handles deleting and editing
