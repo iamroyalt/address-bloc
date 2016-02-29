@@ -1,8 +1,9 @@
 #test created to confirm AddressBook responds to Entries
 require_relative '../models/address_book'
-
+##feb 29 changes
  RSpec.describe AddressBook do
-   Context "attributes" do
+   context "attributes" do
+
      it "responds to entries" do
        book = AddressBook.new
        expect(book).to respond_to(:entries)
@@ -21,7 +22,7 @@ require_relative '../models/address_book'
      end
 #makes the array of entry useful because entries can be added, definining expected
 #behavior of array
-     Context "#add_entry" do
+     context "#add_entry" do
 #each test is in a separate context for organization
        it "adds only one entry to the address book" do
           book = AddressBook.new
@@ -44,7 +45,7 @@ require_relative '../models/address_book'
 #tests to determine entry to be removed
     Context "remove_entry" do
       it "identifies and removes an entry" do
-          book = AddressBook.new_entry        
+          book = AddressBook.new_entry
           book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
 
 #need to look for the unique name to be removed

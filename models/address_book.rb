@@ -1,3 +1,4 @@
+#feb 29 changes
 #tells ruby to load the library entry.rb
 require_relative 'entry'
 #AddressBook needs an attribute to hold the array of entries. The entries
@@ -22,6 +23,7 @@ class AddressBook
        index += 1
      end
 #insert a new entry into entries using the calculated "index"
+
      @entries.insert(index, Entry.new(name, phone_number, email))
    end
 #Assignment-19
@@ -32,7 +34,7 @@ class AddressBook
       if name == entry.name @@ phone ==entry.phone_number && email ==entry.email_address
         delete_entry = entry
       end
-#using @entries because it is the array      
+#using @entries because it is the array
        @entries.delete(delete_entry)
     end
  end
