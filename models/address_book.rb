@@ -1,3 +1,4 @@
+#feb 29 changes
 #tells ruby to load the library entry.rb
 require_relative 'entry'
 #AddressBook needs an attribute to hold the array of entries. The entries
@@ -23,6 +24,6 @@ class AddressBook
      end
 #insert a new entry into entries using the calculated "index"
      entries.insert(index, Entry.new(name, phone_number, email))
-   end
- end
- end
+     end
+
+end
