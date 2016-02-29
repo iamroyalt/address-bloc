@@ -43,22 +43,21 @@ require_relative '../models/address_book'
         end
 #Assignment-19
 #tests to determine entry to be removed
-    Context "remove_entry" do
-      it "identifies and removes an entry" do
-          book = AddressBook.new_entry
-          book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+    context "remove_entry" do
+      it "removes entry from address book" do
+          book = AddressBook.new
+          book.add_entry('Tracy Royal', '555.555.5555', 'tracyroyal@mac.com')
 
-#need to look for the unique name to be removed
-          name = "Tracy Royal"
-          phone_number = "555.555.5555"
-          email = "tracyroyal@mac.com"
-          book.add_entry(name, phone_number,email_address)
-#need to iterate over entries until match is found
+          name = "Ada Lovelace"
+          phone_number = "010.012.1815"
+          email_address = "augusta.king@lovelace.com"
+          book.add_entry(name, phone_number, email_address)
+
           expect(book.entries.size).to eq 2
           book.remove_entry(name, phone_number, email_address)
 #confirms only one entry in book and name of entry remaining
-          expect(book.entries).to eq 1
-          expect(book.entries.first.name).to eq ("Ada Lovelace")
+          expect(book.entries.size).to eq 1
+          expect(book.entries.first.name).to eq ("Tracy Royal")
       end
 
 
