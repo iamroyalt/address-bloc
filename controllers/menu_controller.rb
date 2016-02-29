@@ -57,7 +57,7 @@ class MenuController
      end
    end
 #Assingment 20 Entry_n_submenu method
-  def Entry_n_submenu
+  def entry_n_submenu
     puts "Entry number to view:"
 #using gets.chomp.to_i as done on line 21
     selection = gets.chomp.to_i
@@ -115,10 +115,7 @@ class MenuController
          end
        end
 
-   end
-
-
-   def create_entry
+     def create_entry
 #clear the screen before displaying any prompts
      system "clear"
      puts "New AddressBloc Entry"
