@@ -23,6 +23,6 @@ class AddressBook
      end
 #insert a new entry into entries using the calculated "index"
      entries.insert(index, Entry.new(name, phone_number, email))
-   end
- end
- end
+     end
+
+end
