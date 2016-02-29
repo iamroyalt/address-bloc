@@ -1,6 +1,7 @@
 #feb 29 changes
 #tells ruby to load the library entry.rb
 require_relative 'entry'
+
 #AddressBook needs an attribute to hold the array of entries. The entries
 #array will store entries. Provides an easy way to add, remove and count entries
 class AddressBook

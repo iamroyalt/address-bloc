@@ -7,5 +7,3 @@ require_relative 'controllers/menu_controller'
  puts "Welcome to AddressBloc!"
 #displays the menu
 menu.main_menu
-
-end

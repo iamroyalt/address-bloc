@@ -1,7 +1,7 @@
 #needs to connect with address_book
 require_relative '../models/address_book'
 
-Class MenuController
+class MenuController
   attr_reader :address_book
 
   def initialize
@@ -20,11 +20,8 @@ Class MenuController
      print "Enter your selection: "
 # user input using "gets" which reads the next line from standard input
      selection = gets.to_i
-     puts "You picked #{selection}"
-  end
-end
 #use case statement operator to determine the proper response
-case selection
+     case selection
      when 1
        system "clear"
        view_all_entries
@@ -56,6 +53,7 @@ case selection
        system "clear"
        puts "Sorry, that is not a valid input"
        main_menu
+
      end
    end
 #Assingment 20 Entry_n_submenu method
@@ -74,7 +72,7 @@ case selection
       puts "#{selection} is not in AddressBook"
       Entry_n_submenu
     end
-  end  
+  end
 
 
    def view_all_entries
@@ -83,6 +81,10 @@ case selection
        puts entry.to_s
 #displays a submenu for each entry
        entry_submenu(entry)
+     end
+
+     system "clear"
+     puts "End of entries"
      end
 #submenu method
      def entry_submenu(entry)
@@ -112,10 +114,9 @@ case selection
            entry_submenu(entry)
          end
        end
-     system "clear"
-     puts "End of entries"
+
    end
-   end
+
 
    def create_entry
 #clear the screen before displaying any prompts
@@ -128,20 +129,10 @@ case selection
      phone = gets.chomp
      print "Email: "
      email = gets.chomp
-
 #uses add_entry to ensure the new entry is added in the proper order
      address_book.add_entry(name, phone, email)
 
      system "clear"
      puts "New entry created"
    end
-   end
-
-   def search_entries
-   end
-
-   def read_csv
-   end
- end
-
 end
