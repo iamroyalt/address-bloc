@@ -14,7 +14,8 @@ class MenuController
      puts "2 - Create an entry"
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
-     puts "5 - Exit"
+     puts "5 - Destroy Address Book"
+     puts "6 - Exit"
      print "Enter your selection: "
 # user input using "gets" which reads the next line from standard input
      selection = gets.to_i
@@ -37,6 +38,10 @@ class MenuController
        read_csv
        main_menu
      when 5
+       system "clear"
+       destroy_addressbook
+       main_menu
+     when 6
        puts "Good-bye!"
 #terminates the program using 0 which signals the program to exit without error
        exit(0)
@@ -167,6 +172,12 @@ class MenuController
      else
        puts "No match found for #{name}"
      end
+   end
+   def destroy_addressbook
+     @address_book = AddressBook.new
+        puts "Address Book destroyed"
+        main_menu
+    end
    end
 
    def search_submenu(entry)
